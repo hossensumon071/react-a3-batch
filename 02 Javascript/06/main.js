@@ -1,35 +1,52 @@
+// // function calling function
+// function fruitCutter(fruite){
+//     return fruite * 4
+// }
 
-// class - 05
-// functions delarations
-function addThreeNumbers(num1, num2, num3){
-    const sum = num1 + num2 + num3;
-    return sum;
-}
-console.log(addThreeNumbers(10, 20, 30));
 
-const a = 10;
-const b = 20;
-const c = 30;
 
-const mySum = addThreeNumbers(a, b, c)
-console.log(mySum);
+function technicalTest(ramFeq, cpuClock) {
+    const dramState = ramFreqTest(ramFeq);
+    const cpuState = cpuTurbo(cpuClock);
 
-// function expression
-const juiceFactory = function (apples, orange){
-    const juice = (apples * orange) / 2;
-    return `${juice} juice is ready using ${apples} apples and ${orange} orange`;
+    return `${dramState} and ${cpuState}`;
 }
 
-console.log(juiceFactory(10, 5));
+console.log(technicalTest(2400, 1.8));
+
+function ramFreqTest(ramFreq){
+    return ramFreq >= 2600 ? `DDR4` : `DDR3`;
+}
+
+function cpuTurbo(cpuClock) {
+    return cpuClock >= 3.1 ? `1800rpm` : `1400rpm`
+}
 
 
-// kono ekta varibale ba kno ekta function expression ke declare korar age call kora jabe na call korle se ketre error show korbe unexpected refernce error
+/* 
+1st to 10th = 10000 per floor
+11th floor = 12000
+12th to 21st = 10000 per floor
+22th floor = 12000
 
+73 floors ??
 
-const ageCalculator = (birthYear) => 2022 - birthYear;
-console.log(ageCalculator);
+*/
 
-// ternary oparetor
-const ageCalculator2 = (birthYear) => (2022 - birthYear) >= 18 ? `adult` : `You are not adult`
+function brickCalculation(totalFloors) {
+    let totalBricks;
+    const undergoundBricks = 50000;
+    let bricksForAllFloors = totalFloors * 10000;
 
-console.log(ageCalculator);
+    if(totalFloors >= 11){
+        const extraFloors = Math.trunc(totalFloors / 11);
+        const extraBricks = extraFloors * 2000;
+        totalBricks = undergoundBricks + bricksForAllFloors;
+    } else {
+        totalBricks = undergoundBricks + bricksForAllFloors
+    }
+
+    return `total bricks needed: ${totalBricks}`;
+}
+
+console.log(brickCalculation(10));
